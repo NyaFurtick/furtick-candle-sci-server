@@ -14,9 +14,23 @@ app.get('/fizzbuzz/:number', function(req, res){
     res.send(`The number in path is more than 5 digits`);
   }
   else{
-    res.send(`${num}`);
-  }
+  //fizzbuzz logic
+    num = parseInt(num, 10);
+    if ((num % 3 === 0) && (num % 5 === 0)){
+      res.send('FizzBuzz');
+    }
+    else if (num % 3 === 0) {
+      res.send('Fizz');
+    }
+    else if (num % 5 === 0) {
+      res.send('Buzz');
+    }
+    else{
+      res.send(`${num}`);
+    }
+  } // end if-else
 
+  res.end();
 });
 
 // running server
