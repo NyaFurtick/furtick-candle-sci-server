@@ -4,9 +4,19 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-// get requests
-app.get('/', function(req, res){
-  res.send('the server is running')
+// get request
+app.get('/fizzbuzz/:number', function(req, res){
+  // get number in url path
+  let num = req.params.number;
+
+  //check if number more than 5 digits
+  if (num.length > 5){
+    res.send(`The number in path is more than 5 digits`);
+  }
+  else{
+    res.send(`${num}`);
+  }
+
 });
 
 // running server
